@@ -1,25 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
-            <!--бутылка 1-->
-            <div class="col-lg-12">
-                <div class="thumbnail">
-                    <h4>Мои знания и навыки.</h4>
-                    <div>
-                        <b>Характеристики персонажа:</b>
-                        <ul class="list-unstyled">
-                            <li>высшее техническое образование по автоматизации проектирования в машиностроении</li>
-                            <li>курсы Oracle DBA level 1&2</li>
-                            <li>курс Oracle SQL Tuning</li>
-                            <li>Linux(Debian-family), Unix Solaris, Shell</li>
-                            <li>Так как последние пару лет работал в сопровждении банка, то бухучет знаком</li>
-                            <li>HTML/CSS+Bootstrap(курс GeekBrains)</li>
-                            <li>JS(курс на GeekBrains в процессе)</li>
-                            <li>Python(курс на GeekBrains в процессе)</li>
-                            <li>В общении с людьми не испытваю проблем</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<!--content 1-->
+<div class="col-lg-12">
+    <div class="thumbnail">
+        <h4>Мои знания и навыки.</h4>
+        <div>
+            <b>Характеристики персонажа:</b>
+            <ul class="list-unstyled">
+                {% for school in schools %}
+                <li>{{ school }}</li>
+                {% endfor %}
+            </ul>
         </div>
+    </div>
+</div>
 {% endblock %}
