@@ -20,9 +20,9 @@ from main.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', main),
-    url(r'^main/', main),
-    url(r'^aboutme/', aboutme),
-    url(r'^work/', work),
-    url(r'^study/', study),
+    url(r'^main/$', main),
+    url(r'^aboutme/$', aboutme),
+    url(r'^work/$', work),
+    url(r'^study/$', study),
 
 ]

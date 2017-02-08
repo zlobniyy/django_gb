@@ -115,8 +115,8 @@ PATH = os.path.abspath(os.path.dirname(__file__))
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(PATH, '/static/')
-IMG = os.path.join(BASE_DIR, 'img')
-CSS = os.path.join(BASE_DIR, 'css')
-JS = os.path.join(BASE_DIR, 'js')
+IMG = os.path.join(BASE_DIR, 'static/img')
+CSS = os.path.join(BASE_DIR, 'static/css')
+JS = os.path.join(BASE_DIR, 'static/js')
 
 STATICFILES_DIRS = [IMG, CSS, JS]
