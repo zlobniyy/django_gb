@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="block">
+	{% if work_places %}
+		<h4> Мест работы {{ work_places|length }} </h4>
+		{% for place in work_places %}
+			<div class="header">
+				<a href="">
+					{{place.organization.name}}
+				</a>
+			</div>
+			<div class="post">
+				{{place.position}}
+			</div>
+			<div class="desc">
+				{{place.duties}}
+			</div>
+		{% endfor %}
+	{% else %}
+		Еще нигде не работал
+	{% endif %}
+	</div>
+	
+{% endblock %}

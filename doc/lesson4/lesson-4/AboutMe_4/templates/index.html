@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+	<div class="photo">
+		<img src="{% static 'img/photo.jpg' %}" height="120">
+	</div>
+	<ul class="info">
+		<li>
+			<span class="fio">{{lastname|title}} {{fistname|title}}</span>
+		</li>
+		<li>
+			Год рождения: {{birthday|date:"Y"}}
+		</li>
+		<li>
+			Город: {{city|title}}
+		</li>
+		<li>
+			Образование: Высшее
+		</li>
+	</ul>
+	<div class="clearfix"></div>
+	<div class="desc">
+		<p>
+			Выпускник университета.
+		</p>
+		<p>
+			Начал свою карьеру.
+		</p>
+	</div>
+{% endblock %}

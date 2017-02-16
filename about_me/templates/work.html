@@ -10,7 +10,7 @@
             <b>Кем я успел поработать:</b>
             <ul class="list-unstyled">
                 {% for work in works %}
-                <li>{{ work }}</li>
+                <li>Работал в организации <strong>"{{ work.organization.name }}"</strong> {{ work.period }} месяцев на должности <strong>"{{ work.position }}"</strong>.</li>
                 {% endfor %}
             </ul>
         </div>

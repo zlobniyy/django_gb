@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+	<div class="block">
+	{% if hobbies %}
+		<h4> Хобби {{ hobbies|length }} </h4>
+		{% for hobby in hobbies %}
+			<div class="header">
+				<a href="">
+					{{hobby.name}}
+				</a>
+				<img src="/media/{{ hobby.image }}" height="50px">
+			</div>
+		{% endfor %}
+	{% else %}
+		Еще определился с хобби
+	{% endif %}
+	</div>
+
+{% endblock %}

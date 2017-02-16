@@ -26,7 +26,7 @@
                     <b>Мои увлечения:</b>
                 <ul class="list-unstyled">
                     {% for hobby in hobbys %}
-                    <li>{{ hobby }}</li>
+                    <li> Увлекаюсь предметом "{{ hobby.hobbyname }}" уже {{hobby.period}} месяцев.</li>
                     {% endfor %}
                 </ul>
                 <!--Увлекаюсь фотографией, автоспортом, фотографией автоспорта, и автомобилями.(<a href="http://yadi.sk/d/8H4-jc7-3DcU28" >смотреть картиночки</a>).<br> -->

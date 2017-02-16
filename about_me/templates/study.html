@@ -8,8 +8,10 @@
         <div>
             <b>Характеристики персонажа:</b>
             <ul class="list-unstyled">
-                {% for school in schools %}
-                <li>{{ school }}</li>
+                {% for place in schools %}
+                <li>Учился в <a href=http:\\{{ place.organization.site }} target="_blank"> <strong> "{{ place.organization.name }}" </strong> </a> по курсу <strong>"{{ place.course }}"</strong> в течении {{ place.period }}
+                    месяцев.
+                </li>
                 {% endfor %}
             </ul>
         </div>

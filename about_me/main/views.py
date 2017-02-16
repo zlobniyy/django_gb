@@ -29,7 +29,7 @@ def aboutme(request):
                                             'title': title,
                                             'page': page,
                                             'wasborn': wasborn,
-                                            'hobbys': [aboutme.hobbyname for aboutme in hobby_list]})
+                                            'hobbys': hobby_list})
 
 
 def study(request):
@@ -37,7 +37,9 @@ def study(request):
     schools_list = Study.objects.all() or ['Видимо я ничего не умею 0_о']
     title = 'Учеба'
     return render(request, 'study.html',
-                  {'schools': [study.schools + " - " + study.course for study in schools_list], 'title': title,
+                  # {'schools': [study.schools + " - " + study.course for study in schools_list], 'title': title,
+                  {'schools': schools_list,
+                   'title': title,
                    'page': page})
 
 
@@ -47,5 +49,6 @@ def work(request):
 
     title = 'Работа'
     return render(request, 'work.html',
-                  {'works': [work.organization + " - " + work.position for work in works_list], 'title': title,
+                  # {'works': [work.organization + " - " + work.position for work in works_list], 'title': title,
+                  {'works': works_list, 'title': title,
                    'page': page})
