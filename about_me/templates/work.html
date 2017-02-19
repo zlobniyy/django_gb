@@ -10,7 +10,18 @@
             <b>Кем я успел поработать:</b>
             <ul class="list-unstyled">
                 {% for work in works %}
-                <li>Работал в организации <strong>"{{ work.organization.name }}"</strong> {{ work.period }} месяцев на должности <strong>"{{ work.position }}"</strong>.</li>
+                <li class="poster">Работал в организации <a href=http:\\{{ work.organization.site }}
+                                                            target="_blank"><strong>"{{ work.organization.name }}"
+                </strong></a> {{ work.period }} месяцев на должности <strong>"{{ work.position }}"</strong>.
+                    <a href="/organization/">Подробнее об организации</a>
+                    <div class="descr">
+                        <p>Наименование: {{ work.organization.name }}<br>
+                            Регион: {{ work.organization.region.name }}<br>
+                            Адрес: {{ work.organization.addres }}<br>
+                            Телефон: {{ work.organization.phone }}<br>
+                            Официальный сайт: <a href=http:\\{{ work.organization.site }} target="_blank"> http:\\{{ work.organization.site }} </a></p>
+                    </div>
+                </li>
                 {% endfor %}
             </ul>
         </div>

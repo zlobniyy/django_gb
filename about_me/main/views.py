@@ -3,7 +3,7 @@ import time, datetime
 from main.models import Work
 from main.models import Study
 from main.models import Aboutme
-
+from main.models import Organization
 
 # Create your views here.
 
@@ -52,3 +52,8 @@ def work(request):
                   # {'works': [work.organization + " - " + work.position for work in works_list], 'title': title,
                   {'works': works_list, 'title': title,
                    'page': page})
+def organization(request):
+    page = 'organization'
+    title = 'Об организации'
+    descr = Organization.object.all()
+    return render(request,'organization.html',{'descr':descr,'page':page,'title':title})

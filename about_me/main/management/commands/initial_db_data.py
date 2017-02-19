@@ -100,8 +100,10 @@ class Command(BaseCommand):
         for work in works:
             org_name = work["organization"]
             reg_name = work["region"]
+            site_name = work["site"]
             region = Region.objects.get(name=reg_name)
             organization = Organization.objects.get(name=org_name)
+            organization = Organization.objects.get(site=site_name)
             work['organization'] = organization
             work['region'] = region
             work = Work(**work)

@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block content %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
-
-</body>
-</html>
+<!--контейнер для контента1-->
+<div class="col-lg-12">
+    <div class="thumbnail">
+        <div>
+            <b>Подробнее:</b>
+                {% for work in works %}
+                    <div >
+                        <p>Наименование: {{ work.organization.name }}<br>
+                            Регион: {{ work.organization.region.name }}<br>
+                            Адрес: {{ work.organization.addres }}<br>
+                            Телефон: {{ work.organization.phone }}<br>
+                            Официальный сайт: <a href=http:\\{{ work.organization.site }} target="_blank"> http:\\{{ work.organization.site }} </a></p>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

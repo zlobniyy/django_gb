@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^aboutme/$', aboutme, name='aboutme'),
     url(r'^work/$', work, name='work'),
     url(r'^study/$', study, name='study'),
+    url(r'^organization/$', organization, name='organization'),
 
 ]

@@ -9,8 +9,16 @@
             <b>Характеристики персонажа:</b>
             <ul class="list-unstyled">
                 {% for place in schools %}
-                <li>Учился в <a href=http:\\{{ place.organization.site }} target="_blank"> <strong> "{{ place.organization.name }}" </strong> </a> по курсу <strong>"{{ place.course }}"</strong> в течении {{ place.period }}
+                <li class="poster">Учился в <a href=http:\\{{ place.organization.site }} target="_blank"> <strong> "{{ place.organization.name }}" </strong> </a> по курсу <strong>"{{ place.course }}"</strong> в течении
+                    {{ place.period }}
                     месяцев.
+                    <div class="descr">
+                        <p>Наименование: {{ place.organization.name }}<br>
+                            Регион: {{ place.organization.region.name }}<br>
+                            Адрес: {{ place.organization.addres }}<br>
+                            Телефон: {{ place.organization.phone }}<br>
+                            Официальный сайт: <a href=http:\\{{ place.organization.site }} target="_blank"> http:\\{{ place.organization.site }} </a></p>
+                    </div>
                 </li>
                 {% endfor %}
             </ul>
