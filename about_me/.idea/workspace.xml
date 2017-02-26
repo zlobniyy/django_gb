@@ -2,46 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="974a6a0f-c23b-40fc-9bd4-51908ba0376b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main/migrations/0002_auto_20170216_1719.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/aboutme - копия.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/aboutme/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/aboutme/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/aboutme/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/aboutme/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/aboutme/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/aboutme/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/aboutme/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/base - копия.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/index - копия.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/study - копия.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/study/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/study/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/study/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/study/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/study/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/study/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/study/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/work - копия.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/work/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/work/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/work/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/work/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/work/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/work/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/static_html/work/views.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db - копия.sqlite3" afterPath="$PROJECT_DIR$/db - копия.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about_me/urls.py" afterPath="$PROJECT_DIR$/about_me/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/management/commands/initial_db_data.py" afterPath="$PROJECT_DIR$/main/management/commands/initial_db_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/main/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/models.py" afterPath="$PROJECT_DIR$/main/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/views.py" afterPath="$PROJECT_DIR$/main/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/style_b.css" afterPath="$PROJECT_DIR$/static/css/style_b.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/aboutme.html" afterPath="$PROJECT_DIR$/templates/aboutme.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/organization.html" afterPath="$PROJECT_DIR$/templates/organization.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/study.html" afterPath="$PROJECT_DIR$/templates/study.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/work.html" afterPath="$PROJECT_DIR$/templates/work.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../photosite/phtotosite/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../photosite/phtotosite/settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../photosite/phtotosite/urls.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../photosite/phtotosite/wsgi.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../photosite/db.sqlite3" afterPath="$PROJECT_DIR$/../photosite/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../photosite/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../photosite/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../photosite/main/views.py" afterPath="$PROJECT_DIR$/../photosite/main/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../photosite/manage.py" afterPath="$PROJECT_DIR$/../photosite/manage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../photosite/static/css/style_b.css" afterPath="$PROJECT_DIR$/../photosite/static/css/style_b.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../photosite/templates/base.html" afterPath="$PROJECT_DIR$/../photosite/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../photosite/templates/index.html" afterPath="$PROJECT_DIR$/../photosite/templates/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,7 +33,7 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/about_me/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1788">
+            <state relative-caret-position="2006">
               <caret line="118" column="22" lean-forward="false" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
               <folding />
             </state>
@@ -73,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/main/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="28" />
+              <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -82,7 +53,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="357">
               <caret line="21" column="68" lean-forward="false" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="68" />
               <folding />
             </state>
@@ -92,7 +63,7 @@
       <file leaf-file-name="initial_db_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/management/commands/initial_db_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="873">
               <caret line="105" column="56" lean-forward="false" selection-start-line="105" selection-start-column="56" selection-end-line="105" selection-end-column="56" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
@@ -104,7 +75,7 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/about_me/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="408">
               <caret line="26" column="60" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="60" />
               <folding>
                 <element signature="e#642#674#0" expanded="true" />
@@ -136,9 +107,13 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="33" column="14" lean-forward="false" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="561">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <marker date="1487502266602" expanded="true" signature="1034:1481" ph="..." />
+                <marker date="1487502266602" expanded="true" signature="1070:1466" ph="..." />
+                <marker date="1487502266602" expanded="true" signature="1510:1585" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -234,7 +209,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -363,6 +337,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -549,7 +524,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14128843" sideWeight="0.49425286" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14128843" sideWeight="0.49425286" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -595,11 +570,38 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="14" lean-forward="false" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+          <folding>
+            <marker date="1487502266602" expanded="true" signature="1034:1481" ph="..." />
+            <marker date="1487502266602" expanded="true" signature="1070:1466" ph="..." />
+            <marker date="1487502266602" expanded="true" signature="1510:1585" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/study.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/work.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -633,7 +635,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" column="14" lean-forward="true" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-          <folding />
+          <folding>
+            <marker date="1487502266602" expanded="true" signature="1034:1481" ph="..." />
+            <marker date="1487502266602" expanded="true" signature="1070:1466" ph="..." />
+            <marker date="1487502266602" expanded="true" signature="1510:1585" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -665,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -715,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -775,25 +779,12 @@
     <entry file="file://$PROJECT_DIR$/aboutme/views.py" />
     <entry file="file://$PROJECT_DIR$/css/bootstrap.css" />
     <entry file="file://$PROJECT_DIR$/css/style_b.css" />
-    <entry file="file://$PROJECT_DIR$/templates/static_html/index - копия.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/static_html/aboutme - копия.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/static_html/index - копия.html" />
+    <entry file="file://$PROJECT_DIR$/templates/static_html/aboutme - копия.html" />
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,7 +806,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/about_me/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1788">
+        <state relative-caret-position="2006">
           <caret line="118" column="22" lean-forward="false" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
           <folding />
         </state>
@@ -823,7 +814,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/about_me/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="408">
           <caret line="26" column="60" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="60" />
           <folding>
             <element signature="e#642#674#0" expanded="true" />
@@ -833,9 +824,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="33" column="14" lean-forward="false" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="561">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <marker date="1487502266602" expanded="true" signature="1034:1481" ph="..." />
+            <marker date="1487502266602" expanded="true" signature="1070:1466" ph="..." />
+            <marker date="1487502266602" expanded="true" signature="1510:1585" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -843,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="156" column="25" lean-forward="false" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,14 +860,14 @@
     <entry file="file://$PROJECT_DIR$/main/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="28" />
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
+        <state relative-caret-position="357">
           <caret line="21" column="68" lean-forward="false" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="68" />
           <folding />
         </state>
@@ -881,7 +875,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/management/commands/initial_db_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="873">
           <caret line="105" column="56" lean-forward="false" selection-start-line="105" selection-start-column="56" selection-end-line="105" selection-end-column="56" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
