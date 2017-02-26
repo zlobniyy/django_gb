@@ -2,51 +2,61 @@
 {% block content %}
 {% load static %}
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="thumbnail">
-            <p> Приветствую, {{ guest }}. </p>
-            <p>Это главная страница сайта. Пока здесь ничего нет кроме странного оформления.</p>
-            <p>В правом верхнем углу есть меню с ссылками на другие страницы сайта.</p>
-        </div>
-    </div>
-</div>
-<div class="col-lg-5">
+<div class="col-lg-12">
     <div class="thumbnail">
-        <div>
-            <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static "some_photo1.jpg" %}" alt="photosets">
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-lg-5">
-    <div class="thumbnail">
-        <div>
-            <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static "some_photo2.jpg" %}" alt="races">
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-lg-5">
-    <div class="thumbnail">
-        <div>
-            <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static "some_photo3.jpg" %}" alt="concepts">
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-lg-5">
-    <div class="thumbnail">
-        <div>
-            <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static "some_photo4.jpg" %}" alt="photo">
-            </a>
-        </div>
+        <p> Приветствую, <strong>{% if user.is_authenticated %} {{ user|capfirst }} {% else %} Guest {% endif %}</strong>. </p>
+        <p>Это главная страница сайта. Пока здесь ничего нет кроме странного оформления.</p>
+        <p>В правом верхнем углу есть меню с ссылками на другие страницы сайта.</p>
     </div>
 </div>
 
+<div class="col-lg-5">
+    <div class="thumbnail">
+        <div class="thumbdesc">
+            PHOTOSETS
+        </div>
+        <div>
+            <a class="thumbnail" href="#">
+                <img class="thumbimg" src="{% static "photosets.jpg" %}" alt="photosets">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-5">
+    <div class="thumbnail">
+        <div class="thumbdesc">
+            RACES
+        </div>
+        <div>
+            <a class="thumbnail" href="#">
+                <img class="thumbimg" src="{% static "races.jpg" %}" alt="races">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-5">
+    <div class="thumbnail">
+        <div class="thumbdesc">
+            WIP
+        </div>
+        <div>
+            <a class="thumbnail" href="#">
+                <img class="thumbimg" src="{% static "wip.jpg" %}" alt="WIP">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-5">
+    <div class="thumbnail">
+        <div class="thumbdesc">
+            PHOTO
+        </div>
+        <div>
+            <a class="thumbnail" href="#">
+                <img class="thumbimg" src="{% static "photo.jpg" %}" alt="photo">
+            </a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
