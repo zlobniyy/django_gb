@@ -15,6 +15,9 @@
     </div>
     <form id="user_form" onclick="send_data({{ id }})">
         {% include 'inc-registration_form.html' %}
-        <input type="submit" value="Edit account">
     </form>
+    <input type="submit" value="Edit account" onclick="send_data()">
 {% endblock %}
+
+
+

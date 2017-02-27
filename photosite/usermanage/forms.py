@@ -5,8 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 
 class MyRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    first_name = forms.CharField(label='Имя',required=False)
-    last_name = forms.CharField(label='Фамилия',required=False)
+    first_name = forms.CharField(label='Имя', required=False)
+    last_name = forms.CharField(label='Фамилия', required=False)
 
     class Meta:
         model = User
@@ -20,3 +20,15 @@ class MyRegistrationForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class UserChangeForm(forms.ModelForm):
+    """
+    Форма для обновления данных пользователей. Нужна только для того, чтобы не
+    видеть постоянных ошибок "Не заполнено поле password" при обновлении данных
+    пользователя.
+    """
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name']

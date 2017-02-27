@@ -1,9 +1,13 @@
 from django.contrib import auth
-from django.shortcuts import render, HttpResponseRedirect
-from django.http import Http404
-from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from .forms import MyRegistrationForm
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.contrib.auth.models import User
+from usermanage.forms import MyRegistrationForm , UserChangeForm
+from django.http import Http404, JsonResponse
+from django.template import loader
+from django.template.context_processors import csrf
+from django.contrib.auth.decorators import user_passes_test
 import time, datetime
 
 
