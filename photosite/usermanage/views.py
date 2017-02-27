@@ -3,7 +3,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.http import Http404
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from usermanage.forms import MyRegistrationForm
+from .forms import MyRegistrationForm
 import time, datetime
 
 
@@ -77,7 +77,109 @@ def registration(request):
             form.save()
             return HttpResponseRedirect('/')
         context = {'form': form}
-        return render(request, 'registration.html', context, {'page': page, 'title': title})
+        return render(request, 'registration.html', context)
     context = {'form': MyRegistrationForm()}
     print(page, title)
-    return render(request, 'registration.html', context, {'page': page, 'title': title})
+    return render(request, 'registration.html', context)
+
+
+def admin_page(request):
+    # TODO: сделать доступ у админке только суперпользователю
+    users = User.objects.all()
+    return render(request, 'admin_page.html', {'users': users})
+
+
+def delete_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    user.delete()
+    return HttpResponseRedirect('/admin')
+
+    if request.is_ajax():
+        if not user_id:
+            user = User(request.POST)
+        else:
+            user = get_object_or_404(User, id=user_id)
+            user = MyRegistrationForm(request.POST or None, instance=user)
+        if user.is_valid():
+            user.save()
+            users = User.objects.all()
+            html = loader.render_to_string('users_list.html', {'users': users}, request=request)
+            data = {'errors': False, 'html': html}
+            return JsonResponse(data)
+        else:
+            errors = user.errors.as_json()
+            return JsonResponse({'errors': errors})
+    raise Http404
+
+
+def get_user_form(request, user_id):
+    """
+    Возвращает заполненную форму для редактирования Пользователя(User) с заданным user_id
+    """
+    if request.is_ajax():
+        user = get_object_or_404(User, id=user_id)
+        user_form = MyRegistrationForm(instance=user)
+        context = {'form': user_form, 'id': user_id}
+        context.update(csrf(request))
+        html = loader.render_to_string('inc-registration_form.html', context)
+        data = {'errors': False, 'html': html}
+        return JsonResponse(data)
+    raise Http404
+
+
+#here admin-side
+
+def admin_page(request):
+    users = User.objects.all()
+    user_form = MyRegistrationForm()
+
+    return render(request, 'admin_page.html', {'users': users, 'form': user_form})
+
+
+def delete_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    user.delete()
+    return HttpResponseRedirect('/admin')
+
+
+def get_user_form(request, user_id):
+    """
+    Возвращает заполненную форму для редактирования Пользователя(User) с заданным user_id
+    """
+    if request.is_ajax():
+        user = get_object_or_404(User, id=user_id)
+        user_form = MyRegistrationForm(instance=user)
+        context = {'form': user_form, 'id': user_id}
+        context.update(csrf(request))
+        html = loader.render_to_string('inc-registration_form.html', context)
+        data = {'errors': False, 'html': html}
+        return JsonResponse(data)
+    raise Http404
+
+
+def create_user(request, user_id=None):
+    """
+    Создает Пользователя(User)
+    Или редактирует существующего, если указан  user_id
+    """
+    if request.is_ajax():
+        print('user_id = ', user_id)
+        if not user_id:
+            print('Not user_id')
+            #user = User(request.POST)
+            user_form = MyRegistrationForm(request.POST)
+        else:
+            user = get_object_or_404(User, id=user_id)
+            user_form = UserChangeForm(request.POST or None, instance=user)
+            print('Edited' + str(user_id))
+        if user_form.is_valid():
+            user_form.save()
+            users = User.objects.all()
+            html = loader.render_to_string('inc-users_list.html', {'users': users}, request=request)
+            data = {'errors': False, 'html': html}
+            return JsonResponse(data)
+        else:
+            errors = user_form.errors.as_json()
+            return JsonResponse({'errors': errors})
+
+    raise Http404

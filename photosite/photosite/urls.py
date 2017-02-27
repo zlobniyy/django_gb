@@ -19,7 +19,7 @@ from main.views import *
 from usermanage.views import *
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    #url(r'^admin/', admin.site.urls),
     url(r'^$', main, name='main'),
     url(r'^main/$', main, name='main'),
 ]
@@ -28,4 +28,8 @@ urlpatterns += [
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^registration/$', registration, name='registration'),
+    url(r'^admin/$', admin_page),
+    url(r'^admin/delete/user/(\d+)$', delete_user),
+    url(r'^admin/get_user_form/(\d+)$', get_user_form),
+    url(r'^admin/create/user/(\d*)$', create_user),
 ]

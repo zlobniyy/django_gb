@@ -244,3 +244,8 @@ width:100%;
 label {
 color: antiquewhite;
 }
+
+.error {
+color: antiquewhite;
+margin-left: 20px;
+}
