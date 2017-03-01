@@ -19,9 +19,11 @@ from main.views import *
 from usermanage.views import *
 
 urlpatterns = [
-    #url(r'^admin/', admin.site.urls),
+    # url(r'^admin/', admin.site.urls),
     url(r'^$', main, name='main'),
     url(r'^main/$', main, name='main'),
+    url(r'^main1/$', main1, name='main1'),
+    url(r'^admin1/$', admin_page1),
 ]
 
 urlpatterns += [
