@@ -1,18 +1,23 @@
 from django import forms
 from .models import *
 
-class MyCatecoryForm():
-    name = forms.CharField(label='Наименование категории',required=True)
-    pic = forms.ImageField(label='Картинка категории',required=True)
+
+class CategoryForm(forms.ModelForm):
+    name = forms.CharField(label='Наименование категории', required=True)
+    image = forms.ImageField(label='Картинка категории', required=False)
+    description = forms.CharField(label='Описание категории', required=False)
+    date = forms.DateField(label='Дата создания категории')
 
     class Meta:
-        model = Category
-        fields = ('name', 'pic')
+        model = Categorymodel
+        fields = ('name', 'image', 'description')
 
-    # def save(self, commit=True):
-    #     cat = super(MyCatecoryForm, self).save(commit=False)
-    #     cat.name = self.cleaned_data['name']
-    #     cat.pic = self.cleaned_data['pic']
-    #     if commit:
-    #         cat.save()
-    #     return cat
+
+class CategoryFormChange(forms.ModelForm):
+    name = forms.CharField(label='Наименование категории', required=True)
+    image = forms.ImageField(label='Картинка категории', required=False)
+    description = forms.CharField(label='Описание категории', required=False)
+
+    class Meta:
+        model = Categorymodel
+        fields = ('name', 'image', 'description')

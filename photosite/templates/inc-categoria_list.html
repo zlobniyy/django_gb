@@ -1,16 +1,9 @@
 {% for cat in cats %}
 {% load static %}
-<li>{{ cat }}
-    <button type="button" class="btn btn-default" aria-label="Edit"
-            onclick="fill_form({{ cat.id }})">
-        <!--<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>-->
-        Редактировать
-    </button>
-    <button type="button" class="btn btn-default" aria-label="Delete">
-        <a href="delete/cat/{{ cat.id }}" class="btn btn-default">
-            <!--<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>-->
-            Удалить
-        </a>
-    </button>
+<li>
+    <a href="{% url 'admin_category_detail' cat.id %}">{{cat.name}}</a> -
+    <a href="{% url 'admin_category_delete' cat.id %}">Удалить</a> -
+    <a href="{% url 'admin_category_update' cat.id %}">Редактировать</a>
 </li>
 {% endfor %}
+<a href="{% url 'admin_category_create' %}">Добавить</a>

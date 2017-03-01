@@ -48,10 +48,10 @@ function getFormData(form) {
 
 function send_data() {
     var id = $('#cont_id').html();
-    // console.log('cont_id = ', id);
+     console.log('cont_id = ', id);
     var prefix =  (id != undefined) ? id : '';
     var cont_data = getFormData($form);
-    // console.log('cont_data = ', cont_data);
+     console.log('cont_data = ', cont_data);
     $.ajax({
         url: 'create/cont/' + prefix,
         type: 'POST',
@@ -61,12 +61,12 @@ function send_data() {
             console.log("response = ", response);
             if (response.errors) {
                 var errors = JSON.parse(response.errors);
-                //console.log("errors = ", errors);
+                console.log("errors = ", errors);
                 clear_errors();
                 show_errors(errors);
             } else {
                 clear_form();
-                // $('#myModal').modal('hide');
+                 $('#myModal').modal('hide');
                 update_page(response.html);
                 console.log("Object create");
                 clear_form()

@@ -61,6 +61,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -122,3 +123,6 @@ JS = os.path.join(BASE_DIR, 'static/js')
 FONTS = os.path.join(BASE_DIR, 'static/fonts')
 
 STATICFILES_DIRS = [IMG, CSS, JS, FONTS]
+
+MEDIA_ROOT= os.path.join(BASE_DIR, 'upload')
+MEDIA_URL='/media/'

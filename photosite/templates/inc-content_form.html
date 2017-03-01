@@ -1,8 +1,9 @@
 {% csrf_token %}
 {% load static %}
 <table>
-    <span class="hidden" id="cont_id">{{ id }}</span>
+
     {% for field in form %}
+    <span class="hidden" id="cont_id">{{ id }}</span>
         <tr>
             <td>
                 {{ field.label_tag }}

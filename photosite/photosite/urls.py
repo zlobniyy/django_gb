@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^$', main, name='main'),
     url(r'^main/$', main, name='main'),
     url(r'^main1/$', main1, name='main1'),
-    url(r'^admin1/$', admin_page1),
+    url(r'^admin1/$', admin_content),
 ]
 
 urlpatterns += [
@@ -34,4 +34,11 @@ urlpatterns += [
     url(r'^admin/delete/user/(\d+)$', delete_user),
     url(r'^admin/get_user_form/(\d+)$', get_user_form),
     url(r'^admin/create/user/(\d*)$', create_user),
+]
+
+urlpatterns += [
+    url(r'^admin1/create/category/$', admin_category_create,name='admin_category_create'),
+    url(r'^admin1/delete/category/(\d+)$', admin_category_delete,name='admin_category_delete'),
+    url(r'^admin1/update/category/(\d+)$', admin_category_update,name='admin_category_update'),
+    url(r'^admin1/detail/category/(\d+)$', admin_category_detail,name='admin_category_detail'),
 ]

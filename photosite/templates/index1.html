@@ -4,59 +4,23 @@
 
 <div class="col-lg-12">
     <div class="thumbnail">
-        <p> Приветствую, <strong>{% if user.is_authenticated %} {{ user|capfirst }} {% else %} Guest {% endif %}</strong>. </p>
-        <p>Это главная страница сайта. Пока здесь ничего нет кроме странного оформления.</p>
-        <p>В правом верхнем углу есть меню с ссылками на другие страницы сайта.</p>
+        <p> Приветствую, <strong>{% if user.is_authenticated %} {{ user|capfirst }} {% else %} Guest {% endif %}
+        </strong>. </p>
+        <p>Это главная страница сайта.Осмотритесь в поисках интересного</p>
     </div>
 </div>
-
+{% for cat in cats %}
 <div class="col-lg-5">
     <div class="thumbnail">
         <div class="thumbdesc">
-            PHOTOSETS
+            {{ cat.name }}
         </div>
         <div>
             <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static "photosets.jpg" %}" alt="photosets">
+                <img class="thumbimg" src="/upoad/{{ cat.image }}" alt="{{ cat.name }}">
             </a>
         </div>
     </div>
 </div>
-<div class="col-lg-5">
-    <div class="thumbnail">
-        <div class="thumbdesc">
-            RACES
-        </div>
-        <div>
-            <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static "races.jpg" %}" alt="races">
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-lg-5">
-    <div class="thumbnail">
-        <div class="thumbdesc">
-            WIP
-        </div>
-        <div>
-            <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static "wip.jpg" %}" alt="WIP">
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-lg-5">
-    <div class="thumbnail">
-        <div class="thumbdesc">
-            PHOTO
-        </div>
-        <div>
-            <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static "photo.jpg" %}" alt="photo">
-            </a>
-        </div>
-    </div>
-</div>
-
+{% endfor %}
 {% endblock %}
