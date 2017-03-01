@@ -1,8 +1,8 @@
 from django.contrib import auth
 from django.core.exceptions import ValidationError
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
-from main.models import *
-from main.forms import *
+from .models import *
+from .forms import *
 from django.http import Http404, JsonResponse
 from django.template import loader
 from django.template.context_processors import csrf
@@ -26,15 +26,9 @@ def main1(request):
 
 
 def admin_page1(request):
-    print('line 0')
     cats = Category.objects.all()
-    print('line 1')
     cat_form = MyCatecoryForm()
-    print('line 2')
     print(request.GET)
-    print('line 3')
     # print(cats)
-    print('line 4')
     # print(str(cat_form.Meta.fields) + str(type(cat_form.name)) + str(type(cat_form.Meta.fields)))
-    print('line 5')
-    return render(request, "admin_page1.html", {'cats': cats, 'cat_form': cat_form})
+    return render(request, "admin_page1.html", {'cats': cats, 'form': cat_form})

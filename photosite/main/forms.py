@@ -1,5 +1,5 @@
 from django import forms
-from main.models import *
+from .models import *
 
 class MyCatecoryForm():
     name = forms.CharField(label='Наименование категории',required=True)
