@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    height: 100%;
+    min-height: 100%;
+}
+
+.container {  
+    margin: 0 auto;
+    margin-top: 0;
+    padding: 0;
+    float: none;
+    min-height: 100%;
+    background-image: url(back1.jpg);
+    background-size: cover;
+    position: relative;
+    padding-bottom: 100px;
+}
+.menu {
+    margin-right: 5px;
+    float: right;
+}
+.menu-points{
+    font-weight: 900;
+    color: antiquewhite;
+}
+
+a {
+    color: antiquewhite;
+}
+a:hover {
+    color: darkgrey;
+    text-decoration: none;
+}
+
+.content{
+    padding: 0;
+    min-height: 100%;
+    height: 100%;
+    margin-bottom: -100px;
+}
+.buffer{
+    height: 100px;
+    background-color: transparent;
+}
+.footer {
+    height: 100px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(128,128,128,0.7);
+    padding: 20px;
+    margin-top: 0px;
+}
+.header{
+    margin: 0;
+    padding: 0;
+    height: 120px;
+    background-color: rgba(128,128,128,0.7);
+    /*background-size: contain;*/
+}
+.breadcrumb{
+    margin: 0;
+    background-color: transparent;
+}
+.breadcrumb a {
+    text-decoration: none;
+    font-weight: 900;
+    color:antiquewhite;
+};
+
+.breadclumps{
+    padding: 0;
+}
+.logo,.orgname {
+    margin: 0;
+}
+.list-inline{
+    padding: 10px;
+}
+.main-text{
+    margin-top: 50px;
+    padding: 40px;
+}
+.breadcrumb-item{
+    background-color: rgba(128, 128, 128, 0.7);
+    border-radius: 10px 50px 50px 10px;
+    padding: 5px;
+    padding-right: 10px;
+    margin: 0px;
+}
+
+.thumbimg{
+    height: 250px;
+    background-color: transparent;
+}
+
+.thumbnail .thumbnail img{
+    height: 250px;
+    background-color: transparent;
+}
+.thumbnail {
+    background-color: rgba(128,128,128,0.8);
+    margin-top: 20px;
+    border: none;
+}
+
+.thumbnail .thumbnail {
+    margin-top:0;
+}
+
+.row{
+    margin: 15px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.btn-default{
+    width: 50%;
+}
+.contacts{
+    padding: 0 25px;
+    padding-top: 25px;
+    
+}
+.inputs{
+    width: 40%;
+}
+/*form textarea:focus{
+    text-transform: capitalize;
+}
+form input[type="text"]:focus{
+    text-transform: capitalize;*/
+}
+.prod_pic{
+    width: 180px;
+    margin-left: 20px;
+    background-color: rgba(128,128,128,0.3);
+    padding: 0px;
+    padding-top: 10px;
+    border-radius: 25px;
+}
+.table-bordered{
+    width: 400px;
+    border-color: black;
+}
+
+.poster{
+    position:relative;
+}
+
+.descr{
+    display:none;
+    margin-left:5px;
+    padding:10px;
+    margin-top:17px;
+    margin-bottom:17px;
+    background:lightblue;
+    -moz-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    border-radius:5px;
+}
+.poster:hover .descr{
+    display:block;
+    position:absolute;
+    top:10px;
+    z-index:9999;
+    width:400px;
+}
+.thumbdesc{
+    margin-top: 0;
+    margin-bottom:0;
+    margin-left:25px;
+}
+
+.logformhide{
+display: none;
+}
+
+. logform{
+float:right;
+height: 100%;
+width:100%;
+}
+.logformwidth{
+width:100%;
+}
+
+
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+.modalDialog:target {
+    display: block;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover { background: #00d9ff; }
+
+label {
+color: antiquewhite;
+}
+
+.error {
+color: antiquewhite;
+margin-left: 20px;
+}

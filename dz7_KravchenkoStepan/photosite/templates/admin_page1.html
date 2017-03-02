@@ -1,0 +1,38 @@
+{% extends "base_admin.html" %}
+{% load static %}
+{% block js %}
+{{ block.super }}
+<script src="{% static 'create_user.js' %}"></script>
+<script src="{% static 'content_funcs.js' %}"></script>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        Пользователи:
+        <ul id="users">
+            {% include 'inc-users_list.html' %}
+        </ul>
+    </div>
+</div>
+<form id="user_form">
+    {% include 'inc-registration_form.html' %}
+</form>
+<input type="submit" value="Edit account" onclick="send_data()">
+
+
+<div class="row">
+    <div class="col-md-6">
+        Категории:
+        <ul id="cats">
+            {% include 'inc-categoria_list.html' %}
+        </ul>
+    </div>
+</div>
+<form id="cont_form">
+    {% include 'inc-content_form.html' %}
+</form>
+<input type="submit" value="Edit content" onclick="send_data()">
+{% endblock %}
+
+
+
