@@ -2,6 +2,7 @@
 {% block content %}
 {% load static %}
 
+
 <div class="col-lg-12">
     <div class="thumbnail">
         <p> Приветствую, <strong>{% if user.is_authenticated %} {{ user|capfirst }} {% else %} Guest {% endif %}
@@ -9,7 +10,7 @@
         <p>Это главная страница сайта.Осмотритесь в поисках интересного</p>
     </div>
 </div>
-{% for cat in cats %}
+{% for cat in categories %}
 <div class="col-lg-5">
     <div class="thumbnail">
         <div class="thumbdesc">
@@ -23,4 +24,17 @@
     </div>
 </div>
 {% endfor %}
+<div class=" pager">
+    <span class="step-links">
+        {% if categories.has_previous %}
+            <a href="?page={{ categories.previous_page_number }}">предыдущая</a>
+        {% endif %}
+        <span class="current">
+            Page {{ categories.number }} of {{ categories.paginator.num_pages }}.
+        </span>
+        {% if categories.has_next %}
+            <a href="?page={{ categories.next_page_number }}">следующая</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}

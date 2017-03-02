@@ -249,3 +249,13 @@ color: antiquewhite;
 color: antiquewhite;
 margin-left: 20px;
 }
+
+span .current{
+color:antiquewhite;
+background-color: rgba(128,128,128,0.3);
+}
+
+div .pagination{
+background-color: rgba(128,128,128,0.3);
+margin:20;
+}

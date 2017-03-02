@@ -10,6 +10,7 @@ from django.template.context_processors import csrf
 from django.contrib.auth.decorators import user_passes_test
 import time, datetime
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
@@ -22,9 +23,9 @@ def main1(request):
     return render(request, "index.html", {'guest': guest, 'dude': dude, 'title': title, 'page': page})
 
 
-def main(request):
-    cats = Categorymodel.objects.all()
-    return render(request, 'index1.html', {'cats': cats})
+# def main(request):
+#     cats = Categorymodel.objects.all()
+#     return render(request, 'index1.html', {'cats': cats})
 
 
 #
@@ -39,7 +40,8 @@ def main(request):
 def admin_cats(request):
     cats = Categorymodel.objects.all()
     form = CategoryFormChange()
-    return render(request, 'admin_cats.html', {'cats': cats, 'form':form})
+    return render(request, 'admin_cats.html', {'cats': cats, 'form': form})
+
 
 def get_cont_form(request, cat_id):
     """
@@ -54,7 +56,6 @@ def get_cont_form(request, cat_id):
         data = {'errors': False, 'html': html}
         return JsonResponse(data)
     raise Http404
-
 
 
 def create_category(request):
@@ -109,3 +110,27 @@ def admin_category_update(request, id):
 def admin_category_detail(request, id):
     cat = get_object_or_404(Categorymodel, id=id)
     return render(request, 'admin_cat_detail.html', {'cat': cat})
+
+
+def listing(request):
+    category_list = Categorymodel.objects.all()
+    print('category_list')
+    print(category_list)
+    # Show 25 objects per page
+    paginator = Paginator(category_list, 2)
+    print('paginator')
+    print(paginator)
+    page = request.GET.get('page')
+    print('page')
+    print(page)
+    try:
+        categories = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        categories = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        categories = paginator.page(paginator.num_pages)
+        print(categories)
+
+    return render(request, 'index1.html', {"categories": categories, 'category_list': category_list})

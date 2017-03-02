@@ -22,9 +22,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
-    url(r'^$', main, name='main'),
+    # url(r'^$', main, name='main'),
     # url(r'^main/$', main, name='main'),
-    url(r'^main/$', main, name='main'),
+    url(r'^$', listing, name='list'),
+    url(r'^main/$', listing, name='list'),
 ]
 
 urlpatterns += [
@@ -44,4 +45,5 @@ urlpatterns += [
     url(r'^admin/cats/delete/category/(\d+)$', admin_category_delete, name='admin_category_delete'),
     url(r'^admin/cats/update/category/(\d+)$', admin_category_update, name='admin_category_update'),
     url(r'^admin/cats/detail/category/(\d+)$', admin_category_detail, name='admin_category_detail'),
+    url(r'list/$', listing, name='list'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
