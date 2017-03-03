@@ -117,7 +117,7 @@ def listing(request):
     print('category_list')
     print(category_list)
     # Show 25 objects per page
-    paginator = Paginator(category_list, 2)
+    paginator = Paginator(category_list, 4)
     print('paginator')
     print(paginator)
     page = request.GET.get('page')

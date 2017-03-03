@@ -105,11 +105,16 @@ a:hover {
 .thumbnail {
     background-color: rgba(128,128,128,0.8);
     margin-top: 20px;
+    margin-bottom:0;
     border: none;
 }
 
 .thumbnail .thumbnail {
     margin-top:0;
+}
+
+.thumb_wrap {
+    margin-bottom:60px;
 }
 
 .row{
@@ -258,4 +263,9 @@ background-color: rgba(128,128,128,0.3);
 div .pagination{
 background-color: rgba(128,128,128,0.3);
 margin:20;
+}
+
+div .pager{
+position: absolute;
+bottom:100px;
 }
