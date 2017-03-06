@@ -129,3 +129,5 @@ STATICFILES_DIRS = [IMG, CSS, JS, FONTS]
 MEDIA_URL="/upload/"
 
 MEDIA_ROOT= os.path.join(BASE_DIR, 'upload')
+
+LOGIN_REDIRECT_URL='/login/'

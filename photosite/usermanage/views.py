@@ -26,7 +26,7 @@ def login(request):
         else:
             print('user not logged.')
             mess = 'Неверный логин/пароль.'
-            return render(request, 'index.html', {'username': username, 'errors': True, 'mess': mess})
+            return render(request, 'index_old.html', {'username': username, 'errors': True, 'mess': mess})
     raise Http404
 
 
@@ -87,7 +87,6 @@ def registration(request):
     return render(request, 'registration.html', context)
 
 # here admin-side
-
 def admin_page(request):
     # TODO: сделать доступ у админке только суперпользователю
     users = User.objects.all()
@@ -131,20 +130,20 @@ def admin_page(request):
 #         return JsonResponse(data)
 #     raise Http404
 
-
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_page(request):
     users = User.objects.all()
     user_form = MyRegistrationForm()
 
     return render(request, 'admin_page.html', {'users': users, 'form': user_form})
 
-
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def delete_user(request, user_id):
     user = get_object_or_404(User, id=user_id)
     user.delete()
     return HttpResponseRedirect('/admin')
 
-
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def get_user_form(request, user_id):
     """
     Возвращает заполненную форму для редактирования Пользователя(User) с заданным user_id
@@ -159,7 +158,7 @@ def get_user_form(request, user_id):
         return JsonResponse(data)
     raise Http404
 
-
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def create_user(request, user_id=None):
     """
     Создает Пользователя(User)

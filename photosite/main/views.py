@@ -20,12 +20,12 @@ def main1(request):
     guest = 'Гость'
     dude = 'Чувак'
     title = 'Главная'
-    return render(request, "index.html", {'guest': guest, 'dude': dude, 'title': title, 'page': page})
+    return render(request, "index_old.html", {'guest': guest, 'dude': dude, 'title': title, 'page': page})
 
 
 # def main(request):
 #     cats = Categorymodel.objects.all()
-#     return render(request, 'index1.html', {'cats': cats})
+#     return render(request, 'index.html', {'cats': cats})
 
 
 #
@@ -36,7 +36,7 @@ def main1(request):
 #     # print(cats)
 #     # print(str(cat_form.Meta.fields) + str(type(cat_form.name)) + str(type(cat_form.Meta.fields)))
 #     return render(request, "admin_page1.html", {'cats': cats, 'form': cat_form})
-
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_cats(request):
     cats = Categorymodel.objects.all()
     form = CategoryFormChange()
@@ -71,6 +71,7 @@ def create_category(request):
 
 
 #################
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_create(request):
     print('request.POST=' + str(request.POST))
     print('request.FILES=' + str(request.FILES))
@@ -84,13 +85,13 @@ def admin_category_create(request):
     context = {'form': CategoryFormChange()}
     return render(request, 'admin_cat_create.html', context)
 
-
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_delete(request, cat_id):
     category = get_object_or_404(Categorymodel, id=cat_id)
     category.delete()
     return HttpResponseRedirect('/admin/cats/')
 
-
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_update(request, id):
     category = get_object_or_404(Categorymodel, id=id)
     print('request.POST=' + str(request.POST))
@@ -106,23 +107,19 @@ def admin_category_update(request, id):
     context = {'form': CategoryFormChange(instance=category)}
     return render(request, 'admin_cat_update.html', context)
 
-
+@user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_detail(request, id):
     cat = get_object_or_404(Categorymodel, id=id)
     return render(request, 'admin_cat_detail.html', {'cat': cat})
 
 
 def listing(request):
+    page = 'main'
+    guest = 'Гость'
+    title = 'Главная'
     category_list = Categorymodel.objects.all()
-    print('category_list')
-    print(category_list)
-    # Show 25 objects per page
     paginator = Paginator(category_list, 4)
-    print('paginator')
-    print(paginator)
     page = request.GET.get('page')
-    print('page')
-    print(page)
     try:
         categories = paginator.page(page)
     except PageNotAnInteger:
@@ -131,6 +128,5 @@ def listing(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         categories = paginator.page(paginator.num_pages)
-        print(categories)
 
-    return render(request, 'index1.html', {"categories": categories, 'category_list': category_list})
+    return render(request, 'index.html', {"categories": categories, 'category_list': category_list,'page':page,'guest':guest,'title':title})

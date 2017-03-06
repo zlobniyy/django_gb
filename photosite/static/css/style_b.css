@@ -115,6 +115,7 @@ a:hover {
 
 .thumb_wrap {
     margin-bottom:60px;
+    width: 470px;
 }
 
 .row{
@@ -267,5 +268,5 @@ margin:20;
 
 div .pager{
 position: absolute;
-bottom:100px;
+bottom:110px;
 }
