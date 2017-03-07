@@ -132,10 +132,11 @@ def admin_page(request):
 
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_page(request):
+    title = 'Админка'
     users = User.objects.all()
     user_form = MyRegistrationForm()
 
-    return render(request, 'admin_page.html', {'users': users, 'form': user_form})
+    return render(request, 'admin_page.html', {'users': users, 'form': user_form,'title':title})
 
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def delete_user(request, user_id):

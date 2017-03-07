@@ -38,9 +38,10 @@ def main1(request):
 #     return render(request, "admin_page1.html", {'cats': cats, 'form': cat_form})
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_cats(request):
+    title = 'Админка'
     cats = Categorymodel.objects.all()
     form = CategoryFormChange()
-    return render(request, 'admin_cats.html', {'cats': cats, 'form': form})
+    return render(request, 'admin_cats.html', {'cats': cats, 'form': form,'title':title})
 
 
 def get_cont_form(request, cat_id):
@@ -96,6 +97,7 @@ def admin_category_delete(request, cat_id):
 
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_update(request, id):
+    title = 'Админка'
     category = get_object_or_404(Categorymodel, id=id)
     print('request.POST=' + str(request.POST))
     print('request.FILES=' + str(request.FILES))
@@ -106,14 +108,15 @@ def admin_category_update(request, id):
             category.save()
             return HttpResponseRedirect('/admin/cats/')
         context = {'form': form}
-        return render(request, 'admin_cat_update.html', context)
+        return render(request, 'admin_cat_update.html', context,{'title':title})
     context = {'form': CategoryFormChange(instance=category)}
-    return render(request, 'admin_cat_update.html', context)
+    return render(request, 'admin_cat_update.html', context,{'title':title})
 
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_detail(request, id):
+    title = 'Админка'
     cat = get_object_or_404(Categorymodel, id=id)
-    return render(request, 'admin_cat_detail.html', {'cat': cat})
+    return render(request, 'admin_cat_detail.html', {'cat': cat, 'title':title})
 
 
 def listing(request):
