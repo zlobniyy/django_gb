@@ -44,6 +44,7 @@ def admin_cats(request):
 
 
 def get_cont_form(request, cat_id):
+    title = 'Админка'
     """
     Возвращает заполненную форму для редактирования Категории(Categorymodel) с заданным cat_id
     """
@@ -59,20 +60,22 @@ def get_cont_form(request, cat_id):
 
 
 def create_category(request):
+    title = 'Админка'
     if request.method == 'POST':
         form = Categorymodel(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/admin/cats/')
         context = {'form': form}
-        return render(request, 'admin_cats.html', context)
+        return render(request, 'admin_cats.html', context,{'title':title})
     context = {'form': MyRegistrationForm()}
-    return render(request, 'admin_cats.html', context)
+    return render(request, 'admin_cats.html', context,{'title':title})
 
 
 #################
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_create(request):
+    title = 'Админка'
     print('request.POST=' + str(request.POST))
     print('request.FILES=' + str(request.FILES))
     if request.method == 'POST':
@@ -81,9 +84,9 @@ def admin_category_create(request):
             form.save()
             return HttpResponseRedirect('/admin/cats/')
         context = {'form': form}
-        return render(request, 'admin_cat_create.html', context)
+        return render(request, 'admin_cat_create.html', context,{'title':title})
     context = {'form': CategoryFormChange()}
-    return render(request, 'admin_cat_create.html', context)
+    return render(request, 'admin_cat_create.html', context,{'title':title})
 
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_delete(request, cat_id):
@@ -114,9 +117,8 @@ def admin_category_detail(request, id):
 
 
 def listing(request):
-    page = 'main'
-    guest = 'Гость'
     title = 'Главная'
+    guest = 'Гость'
     category_list = Categorymodel.objects.all()
     paginator = Paginator(category_list, 4)
     page = request.GET.get('page')
