@@ -40,3 +40,16 @@ def listimg(request, id):
 
     return render(request, 'album.html',
                   {"imagelist": imagelist, 'image_list': image_list, 'page': page})
+
+
+def admin_image_create(request):
+    title = 'Добавить картинку'
+    if request.method == 'POST':
+        form = ImageFormChange(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/admin/lists/')
+        context = {'form': form}
+        return render(request, 'admin_image_create.html', context, {'title': title})
+    context = {'form': ImageFormChange()}
+    return render(request, 'admin_image_create.html', context, {'title': title})

@@ -51,9 +51,8 @@ urlpatterns += [
     url(r'list/(\d*)/$', listimg, name='listimg'),
     url(r'lists/$', images_list, name='images_list'),
 
-    url(r'admin/cats/$', admin_cats, name='admin_cats'),
     # url(r'^admin/img/get_cont_form/(\d+)$', get_cont_form, name='get_cont_form'),
-    # url(r'^admin/img/create/category/$', admin_image_create, name='admin_image_create'),
+    url(r'^admin/img/create/$', admin_image_create, name='admin_image_create'),
     # url(r'^admin/img/delete/category/(\d+)$', admin_image_delete, name='admin_image_delete'),
     # url(r'^admin/img/update/category/(\d+)$', admin_image_update, name='admin_image_update'),
     # url(r'^admin/img/detail/category/(\d+)$', admin_image_detail, name='admin_image_detail'),
