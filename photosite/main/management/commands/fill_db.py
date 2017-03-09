@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from main.models import *
+from content.models import *
 from datetime import date
 
 
@@ -15,7 +16,7 @@ class Command(BaseCommand):
         ]
         images = [
             {'name': 'somephoto1', 'category': 'PHOTOSETS', 'image': 'photosets.jpg', 'rating': 1,'description':'Фотка1'},
-            {'name': 'somephoto2', 'category': 'RACES', 'image': 'reaces.jpg', 'rating': 2,'description':'Фотка1'},
+            {'name': 'somephoto2', 'category': 'RACES', 'image': 'races.jpg', 'rating': 2,'description':'Фотка1'},
             {'name': 'somephoto3', 'category': 'WIP', 'image': 'wip.jpg', 'rating': 3,'description':'Фотка1'},
             {'name': 'somephoto4', 'category': 'PHOTO', 'image': 'photo.jpg', 'rating': 4,'description':'Фотка1'},
         ]

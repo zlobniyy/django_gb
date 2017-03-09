@@ -1,0 +1,24 @@
+{% extends "base_admin.html" %}
+{% load static %}
+{% block js %}
+{{ block.super }}
+<script src="{% static 'content_funcs.js' %}"></script>
+<!--<script src="{% static 'create_user.js' %}"></script>-->
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <ul id="images">
+            {% include 'inc-images_list.html' %}
+        </ul>
+    </div>
+</div>
+<!--<form id="cont_form" method="post" , action="">-->
+    <!--{% include 'inc-content_form.html' %}-->
+<!--</form>-->
+<!--&lt;!&ndash;<form  method="post", action="">&ndash;&gt;-->
+        <!--&lt;!&ndash;{% include 'inc-registration_form.html' %}&ndash;&gt;-->
+        <!--&lt;!&ndash;<input type="submit" value="Создать">&ndash;&gt;-->
+    <!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--<input type="submit" value="Edit content" onclick="send_data()">-->
+{% endblock %}

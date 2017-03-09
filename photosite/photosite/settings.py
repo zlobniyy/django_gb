@@ -26,6 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'usermanage',
+    'content',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,8 +129,8 @@ STATICFILES_DIRS = [IMG, CSS, JS, FONTS]
 
 # MEDIA_URL=os.path.join(BASE_DIR, "upload/")
 # MEDIA_URL="http://127.0.0.1:8000/"
-MEDIA_URL="/upload/"
+MEDIA_URL = "/upload/"
 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'upload')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 
-LOGIN_REDIRECT_URL='/login/'
+LOGIN_REDIRECT_URL = '/login/'

@@ -41,7 +41,7 @@ def admin_cats(request):
     title = 'Админка'
     cats = Categorymodel.objects.all()
     form = CategoryFormChange()
-    return render(request, 'admin_cats.html', {'cats': cats, 'form': form,'title':title})
+    return render(request, 'admin_cats.html', {'cats': cats, 'form': form, 'title': title})
 
 
 def get_cont_form(request, cat_id):
@@ -68,9 +68,9 @@ def create_category(request):
             form.save()
             return HttpResponseRedirect('/admin/cats/')
         context = {'form': form}
-        return render(request, 'admin_cats.html', context,{'title':title})
+        return render(request, 'admin_cats.html', context, {'title': title})
     context = {'form': MyRegistrationForm()}
-    return render(request, 'admin_cats.html', context,{'title':title})
+    return render(request, 'admin_cats.html', context, {'title': title})
 
 
 #################
@@ -85,15 +85,17 @@ def admin_category_create(request):
             form.save()
             return HttpResponseRedirect('/admin/cats/')
         context = {'form': form}
-        return render(request, 'admin_cat_create.html', context,{'title':title})
+        return render(request, 'admin_cat_create.html', context, {'title': title})
     context = {'form': CategoryFormChange()}
-    return render(request, 'admin_cat_create.html', context,{'title':title})
+    return render(request, 'admin_cat_create.html', context, {'title': title})
+
 
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_delete(request, cat_id):
     category = get_object_or_404(Categorymodel, id=cat_id)
     category.delete()
     return HttpResponseRedirect('/admin/cats/')
+
 
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_update(request, id):
@@ -108,15 +110,16 @@ def admin_category_update(request, id):
             category.save()
             return HttpResponseRedirect('/admin/cats/')
         context = {'form': form}
-        return render(request, 'admin_cat_update.html', context,{'title':title})
+        return render(request, 'admin_cat_update.html', context, {'title': title})
     context = {'form': CategoryFormChange(instance=category)}
-    return render(request, 'admin_cat_update.html', context,{'title':title})
+    return render(request, 'admin_cat_update.html', context, {'title': title})
+
 
 @user_passes_test(lambda user: user.is_superuser, login_url='/main/')
 def admin_category_detail(request, id):
     title = 'Админка'
     cat = get_object_or_404(Categorymodel, id=id)
-    return render(request, 'admin_cat_detail.html', {'cat': cat, 'title':title})
+    return render(request, 'admin_cat_detail.html', {'cat': cat, 'title': title})
 
 
 def listing(request):
@@ -134,4 +137,6 @@ def listing(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         categories = paginator.page(paginator.num_pages)
 
-    return render(request, 'index.html', {"categories": categories, 'category_list': category_list,'page':page,'guest':guest,'title':title})
+    return render(request, 'index.html',
+                  {"categories": categories, 'category_list': category_list, 'page': page, 'guest': guest,
+                   'title': title})

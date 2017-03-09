@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+{% for image in imagelist %}
+<div class="col-lg-3 thumb_wrap">
+    <div class="thumbnail">
+        <div>
+            <a class="thumbnail" href="#">
+                <img class="thumbimg" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}">
+            </a>
+        </div>
+        <div class="thumbdesc">
+           <strong> {{ image.name|upper }} </strong>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<div class="col-lg-3 thumb_wrap">
+    <div class="thumbnail">
+        <div>
+            <a class="thumbnail" href="#">
+                <img class="thumbimg" src="{% static 'add.png' %}" alt="Добавить">
+            </a>
+        </div>
+        <div class="thumbdesc">
+           <strong> {{ image.name|upper }} </strong>
+        </div>
+    </div>
+</div>
+
+
+<div class=" pager breadcrumb-item active">
+    <span class="step-links">
+        {% if imagelist.has_previous %}
+            <a href="?page=1">| первая</a>
+            <a href="?page={{ imagelist.previous_page_number }}">| предыдущая</a>
+        {% endif %}
+        <span class="current">
+           | Страница {{ imagelist.number }} из {{ imagelist.paginator.num_pages }} |
+        </span>
+        {% if imagelist.has_next %}
+            <a href="?page={{ imagelist.next_page_number }}">следующая |</a>
+            <a href="?page=999999999999999"> последняя |</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% for image in imagelist %}
+{% load static %}
+<li>
+    <a href="">{{image.name}}</a>
+    <div>
+        <a href="" class="btn btn-default">Удалить</a>
+        <a href="" class="btn btn-default">Редактировать</a>
+    </div>
+</li>
+{% endfor %}
+<div>
+    <a href="" class="btn btn-default">Добавить</a>
+</div>
