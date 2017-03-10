@@ -1,5 +1,6 @@
 from django.db import models
 from main.models import *
+from django.contrib import auth
 # Create your models here.
 
 

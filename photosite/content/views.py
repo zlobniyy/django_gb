@@ -26,6 +26,7 @@ def images_list(request):
 
 # List of items + Paginator
 def listimg(request, id):
+    title=get_object_or_404(Categorymodel,id=id)
     image_list = Imagemodel.objects.filter(category_id=id)
     paginator = Paginator(image_list, 4)
     page = request.GET.get('page')
@@ -39,7 +40,7 @@ def listimg(request, id):
         imagelist = paginator.page(paginator.num_pages)
 
     return render(request, 'album.html',
-                  {"imagelist": imagelist, 'image_list': image_list, 'page': page})
+                  {"imagelist": imagelist, 'image_list': image_list, 'page': page,'title':title})
 
 
 def admin_image_create(request):
