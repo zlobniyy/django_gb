@@ -1,5 +1,6 @@
 from django.db import models
 from main.models import *
+from django.contrib.auth.models import User
 from django.contrib import auth
 # Create your models here.
 
@@ -12,3 +13,4 @@ class Imagemodel(models.Model):
     rating = models.PositiveIntegerField(verbose_name=u'рейтинг', default=0)
     description = models.TextField(verbose_name=u'описание', blank=True)
     # date = models.DateField(verbose_name=u'дата загрузки изображения', auto_now_add=True)
+    author = models.ForeignKey(User,verbose_name=u'Автор', blank=True, default=4)

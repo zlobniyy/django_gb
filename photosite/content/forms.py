@@ -13,8 +13,8 @@ class ImageForm(forms.ModelForm):
 
     class Meta:
         model = Imagemodel
-        fields = ('__all__')
-        # fields = ('name', 'image', 'description', 'category', 'rating', 'date')
+        #fields = ('__all__')
+        fields = ('name', 'image', 'description', 'category' )
 
 
 class ImageFormChange(forms.ModelForm):
@@ -26,5 +26,5 @@ class ImageFormChange(forms.ModelForm):
 
     class Meta:
         model = Imagemodel
-        fields = ('__all__')
-        # fields = ('name', 'image', 'description', 'category', 'rating')
+        #fields = ('__all__')
+        fields = ('name', 'image', 'description', 'category')
