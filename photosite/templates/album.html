@@ -6,32 +6,47 @@
 <div class="col-lg-3 thumb_wrap">
     <div class="thumbnail">
         <div>
-            <a class="thumbnail" href="#">
+            <a class="thumbnail" href="#OpenModalImage">
                 <img class="thumbimg" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}">
             </a>
         </div>
         <div class="thumbdesc">
-           <strong> {{ image.name|upper }} </strong>
+           <strong> Название: {{ image.name|upper }}, Автор: {{ image.author }}, дата загрузки: {{ image.date }} </strong>
         </div>
     </div>
 </div>
 {% endfor %}
 
+        <div id="openModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Закрыть" class="close">X</a>
+                <div>
+                    <img src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}">
+                </div>
+            </div>
+        </div>
+
+
+{% if user.is_authenticated %}
 <div class="col-lg-3 thumb_wrap">
     <div class="thumbnail">
         <div>
-            <a class="thumbnail" href="#">
-                <img class="thumbimg" src="{% static 'add.png' %}" alt="Добавить">
+            <a class="thumbnail" href="{% url 'album_image_create' %}">
+                <img class="thumbimg" src="{% static 'add.png' %}" alt="Добавить картинку">
             </a>
         </div>
         <div class="thumbdesc">
-           <strong> {{ image.name|upper }} </strong>
+           <strong> Добавить картинку </strong>
         </div>
     </div>
 </div>
+<form  method="post", action="" enctype=multipart/form-data>
+    {% include 'inc-registration_form.html' %}
+    <input type="submit" value="Создать">
+</form>
+{% endif %}
 
-
-<div class=" pager breadcrumb-item active">
+<div class="pager breadcrumb-item active">
     <span class="step-links">
         {% if imagelist.has_previous %}
             <a href="?page=1">| первая</a>

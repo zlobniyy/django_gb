@@ -26,7 +26,7 @@ def images_list(request):
 
 # List of items + Paginator
 def listimg(request, id):
-    title=get_object_or_404(Categorymodel,id=id)
+    title = get_object_or_404(Categorymodel, id=id)
     image_list = Imagemodel.objects.filter(category_id=id)
     paginator = Paginator(image_list, 4)
     page = request.GET.get('page')
@@ -40,7 +40,7 @@ def listimg(request, id):
         imagelist = paginator.page(paginator.num_pages)
 
     return render(request, 'album.html',
-                  {"imagelist": imagelist, 'image_list': image_list, 'page': page,'title':title})
+                  {"imagelist": imagelist, 'image_list': image_list, 'page': page, 'title': title})
 
 
 def admin_image_create(request):
@@ -54,3 +54,26 @@ def admin_image_create(request):
         return render(request, 'admin_image_create.html', context, {'title': title})
     context = {'form': ImageFormChange()}
     return render(request, 'admin_image_create.html', context, {'title': title})
+
+
+def album_image_create(request):
+    print('========album_image_add==========')
+    print('POST=' + str(request.POST))
+    title = 'Добавить картинку в альбом'
+    author=auth.get_user(request).pk
+    # ImageFormChange.author =author
+    if request.method == 'POST':
+        form = ImageFormChange(request.POST, request.FILES)
+        # print(form.author)
+        form.data['author'] = str(author)
+        print('form==='+str(form))
+        print('POST=' + str(request.POST))
+        if form.is_valid():
+            # print('AUTHOR_UPDATE='+str(author))
+            # form.cleaned_data['author'] = request.user
+            form.save()
+            return HttpResponseRedirect('/')
+        context = {'form': form}
+        return render(request, 'album.html', context, {'title': title,'author': author})
+    context = {'form': ImageFormChange()}
+    return render(request, 'album.html', context, {'title': title,'author': author})
