@@ -1,7 +1,7 @@
 from django import forms
 from .models import Imagemodel
 from usermanage.models import *
-from usermanage.forms import *
+from usermanage.forms import UserChangeForm, MyRegistrationForm
 from django.utils.timezone import now
 from django.contrib import auth
 

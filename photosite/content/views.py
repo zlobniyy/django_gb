@@ -56,24 +56,34 @@ def admin_image_create(request):
     return render(request, 'admin_image_create.html', context, {'title': title})
 
 
+# представление для добавления изображения пользователем
+@user_passes_test(lambda user: user.is_authenticated, login_url='/oops/')
 def album_image_create(request):
     print('========album_image_add==========')
     print('POST=' + str(request.POST))
     title = 'Добавить картинку в альбом'
-    author=auth.get_user(request).pk
-    # ImageFormChange.author =author
+    author = auth.get_user(request).pk
     if request.method == 'POST':
+        # form = ImageFormChange(request.POST, request.FILES,initial={'author': str(author)})
         form = ImageFormChange(request.POST, request.FILES)
-        # print(form.author)
+        # здесь переопределяем автора на текущего пользователя
         form.data['author'] = str(author)
-        print('form==='+str(form))
+        print('form===' + str(form))
         print('POST=' + str(request.POST))
         if form.is_valid():
-            # print('AUTHOR_UPDATE='+str(author))
-            # form.cleaned_data['author'] = request.user
             form.save()
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/list/' + request.POST['category'] + '?page=999999999999999')
         context = {'form': form}
-        return render(request, 'album.html', context, {'title': title,'author': author})
+        return render(request, 'album.html', context, {'title': title, 'author': author})
     context = {'form': ImageFormChange()}
-    return render(request, 'album.html', context, {'title': title,'author': author})
+    return render(request, 'album.html', context, {'title': title, 'author': author})
+
+
+@user_passes_test(lambda user: user.is_authenticated, login_url='/oops/')
+def album_image_delete(request, id_cat, id_image):
+    image = get_object_or_404(Imagemodel, id=id_image)
+    if image.author.id == request.user.id:
+        image.delete()
+        return HttpResponseRedirect('/list/' + id_cat)
+    else:
+        return HttpResponseRedirect('/oops/')

@@ -12,6 +12,9 @@
         </div>
         <div class="thumbdesc">
            <strong> Название: {{ image.name|upper }}, Автор: {{ image.author }}, дата загрузки: {{ image.date }} </strong>
+            {% if user.is_authenticated %}
+            <a href="img/delete/{{ image.id }}"> Удалить </a>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+
+<div class="col-lg-12">
+    <div class="thumbnail">
+        <p> <strong>{% if user.is_authenticated %} {{ user|capfirst }} {% else %} {{ guest}} {% endif %}, что-то пошло нет так или Вы не авторизовались, или у Вас нет прав на это действие.
+        </strong>. </p>
+        Перейти на <a href="/">Главную </a>
+    </div>
+</div>
+{% endblock %}

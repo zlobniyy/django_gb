@@ -14,4 +14,4 @@ class Imagemodel(models.Model):
     rating = models.PositiveIntegerField(verbose_name=u'рейтинг', default=0)
     description = models.TextField(verbose_name=u'описание', blank=True)
     date = models.DateField(verbose_name=u'дата загрузки изображения', auto_now_add=True)
-    author = models.ForeignKey(User,verbose_name=u'Автор', blank=True, default='4')
+    author = models.ForeignKey(User,verbose_name=u'Автор', blank=False, default='4')

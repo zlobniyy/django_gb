@@ -140,3 +140,7 @@ def listing(request):
     return render(request, 'index.html',
                   {"categories": categories, 'category_list': category_list, 'page': page, 'guest': guest,
                    'title': title})
+def oops(request):
+    title = 'Oops!'
+    guest = 'Гость'
+    return render(request,'something_wrong.html',{'title':title, 'guest':guest})
