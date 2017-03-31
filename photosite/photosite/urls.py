@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^$', listing, name='list'),
     url(r'^main/$', listing, name='list'),
     url(r'oops/$',oops,name='oops'),
+    url(r'test',test,name='test'),
 ]
 
 urlpatterns += [

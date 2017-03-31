@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!--{% csrf_token %}-->
+<h1 class="label"> THIS IS TEEEEST!!!1</h1><br>
+<button id="btn">Получить данные</button>
+<div id="output" class="label"><br>
+    <script type="text/javascript">
+//    document.write('Hello!!');
+    function userInfo()
+        {
+        var output = $('#output'); //вывод информации
+        //var req = XMLHttpRequest();
+        $('#btn').on("click",function()
+            {
+            document.write('Hello!!')
+            $.ajax({
+                    url: '/test/',
+                    type: 'POST',
+                    dataType:'json',
+                    data: {id:1},
+                    beforeSend: function(){
+                        output.text('Запрос отправлен. Ожидаю ответа.');
+                    },
+                    error: function(req,text,error){
+                        output.text('Оибка: '+text + '|' + error);
+                    },
+                    complete: function(){
+                        output.append('Ответ получен.')
+                    },
+                    success: function(json){
+                        output.html(json)
+                    }
+                    });
+            })
+        };
+    userInfo();
+    
+    document.write('Конец JavaScript');
+    </script>
+    
+</div>
+{% endblock %}

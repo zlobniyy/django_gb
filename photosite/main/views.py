@@ -4,6 +4,8 @@ from .models import *
 from .forms import *
 from usermanage.forms import *
 from usermanage.models import *
+from content.forms import *
+from content.models import *
 from django.http import Http404, JsonResponse
 from django.template import loader
 from django.template.context_processors import csrf
@@ -140,7 +142,16 @@ def listing(request):
     return render(request, 'index.html',
                   {"categories": categories, 'category_list': category_list, 'page': page, 'guest': guest,
                    'title': title})
+
+
 def oops(request):
     title = 'Oops!'
     guest = 'Гость'
-    return render(request,'something_wrong.html',{'title':title, 'guest':guest})
+    return render(request, 'something_wrong.html', {'title': title, 'guest': guest})
+
+
+def test(request):
+    title = 'TEST'
+    image_info = Imagemodel.objects.filter(id=1)
+    image_list = Imagemodel.objects.all()
+    return render(request, 'test.html', {'title': title, 'image_info': image_info, 'image_list': image_info})
