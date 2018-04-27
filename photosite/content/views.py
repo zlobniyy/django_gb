@@ -67,7 +67,7 @@ def album_image_create(request):
         # form = ImageFormChange(request.POST, request.FILES,initial={'author': str(author)})
         form = ImageFormChange(request.POST, request.FILES)
         # здесь переопределяем автора на текущего пользователя
-        form.data['author'] = str(author)
+        #form.data['author'] = str(author)
         print('form===' + str(form))
         print('POST=' + str(request.POST))
         if form.is_valid():
