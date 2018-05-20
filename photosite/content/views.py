@@ -44,6 +44,8 @@ def listimg(request, id):
 
 
 def admin_image_create(request):
+    print('========admin_image_add==========')
+    print('POST=' + str(request.POST))
     title = 'Добавить картинку'
     if request.method == 'POST':
         form = ImageFormChange(request.POST, request.FILES)
@@ -59,21 +61,33 @@ def admin_image_create(request):
 # представление для добавления изображения пользователем
 @user_passes_test(lambda user: user.is_authenticated, login_url='/oops/')
 def album_image_create(request):
-    print('========album_image_add==========')
-    print('POST=' + str(request.POST))
-    title = 'Добавить картинку в альбом'
     author = auth.get_user(request).pk
+    print('========album_image_add==========')
+#    print('POST=' + str(request_new))
+    title = 'Добавить картинку в альбом'
     if request.method == 'POST':
         # form = ImageFormChange(request.POST, request.FILES,initial={'author': str(author)})
+        request_new=request.POST.copy()
+        #request_new['author']=str(author)
+        request_new.update({'author':str(author)})
+        print(request_new)
         form = ImageFormChange(request.POST, request.FILES)
+        form1 = ImageFormChange(request_new, request.FILES)
         # здесь переопределяем автора на текущего пользователя
-        #form.data['author'] = str(author)
-        print('form===' + str(form))
-        print('POST=' + str(request.POST))
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/list/' + request.POST['category'] + '?page=999999999999999')
-        context = {'form': form}
+        #form1.data['author'] = str(author)
+        print(type(request_new))
+        print(type(author))
+        print(type(form1.data['author']))
+        print('current_author===' + str(author))
+        print('form1_author===' + form1.data['author'])
+        print('form===' + str(form1))
+        print('POST=' + str(request_new))
+        if form1.is_valid():
+            form1.save()
+            return HttpResponseRedirect('/list/' + request_new['category'] + '?page=999999999999999')
+        else:
+            print("========WTF========")
+        context = {'form': form1}
         return render(request, 'album.html', context, {'title': title, 'author': author})
     context = {'form': ImageFormChange()}
     return render(request, 'album.html', context, {'title': title, 'author': author})
@@ -87,3 +101,9 @@ def album_image_delete(request, id_cat, id_image):
         return HttpResponseRedirect('/list/' + id_cat)
     else:
         return HttpResponseRedirect('/oops/')
+
+@user_passes_test(lambda user: user.is_superuser, login_url='/oops/')
+def adm_album_image_delete(request, id_cat, id_image):
+    image = get_object_or_404(Imagemodel, id=id_image)
+    image.delete()
+    return HttpResponseRedirect('/list/' + id_cat)

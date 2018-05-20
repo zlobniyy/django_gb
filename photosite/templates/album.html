@@ -6,28 +6,51 @@
 <div class="col-lg-3 thumb_wrap">
     <div class="thumbnail">
         <div>
-            <a class="thumbnail" href="#OpenModalImage">
+            <a class="thumbnail" href="#image_{{ image.id }}" data-toggle="modal">
                 <img class="thumbimg" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}">
             </a>
         </div>
         <div class="thumbdesc">
            <strong> Название: {{ image.name|upper }}, Автор: {{ image.author }}, дата загрузки: {{ image.date }} </strong>
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and image.author.id == request.user.id %}
             <a href="img/delete/{{ image.id }}"> Удалить </a>
+            {% elif user.is_superuser %}
+            <a href="img/adm_delete/{{ image.id }}"> Удалить </a>
             {% endif %}
         </div>
     </div>
 </div>
+
+<div id="image_{{ image.id }}" class="modal fade modal_div_img">
+  <div class="modal-dialog" style="width: 80%">
+    <div class="modal-content" style="width: 85%">
+      <!-- Заголовок модального окна -->
+      <div class="modal-header">
+        <!--button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button-->
+        <h4 class="modal-title">{{ image.name|upper }}</h4>
+      </div>
+      <!-- Основное содержимое модального окна -->
+      <div class="modal-body modal_div_img" data-dismiss="modal">
+          <img src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}" class="modal_div_img" style="width: 100%">
+      </div>
+      <!-- Футер модального окна -->
+      <!--div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      </div-->
+    </div>
+  </div>
+</div>
+
 {% endfor %}
 
-        <div id="openModal" class="modalDialog">
+        <!--div id="openModal" class="modalDialog">
             <div>
                 <a href="#close" title="Закрыть" class="close">X</a>
                 <div>
                     <img src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}">
                 </div>
             </div>
-        </div>
+        </div-->
 
 
 {% if user.is_authenticated %}
@@ -43,9 +66,9 @@
         </div>
     </div>
 </div>
-<form  method="post", action="" enctype=multipart/form-data>
-    {% include 'inc-registration_form.html' %}
-    <input type="submit" value="Создать">
+<form  method="post", action="" enctype="multipart/form-data">
+	{% include 'inc-image_registration_form.html' %}
+	<input type="submit" value="Создать">
 </form>
 {% endif %}
 

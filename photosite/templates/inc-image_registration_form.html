@@ -3,6 +3,7 @@
 <table>
     <span class="hidden" id="user_id">{{ id }}</span>
     {% for field in form %}
+    {% if field.name != "author" %}
     <tr>
         <td>
             {{ field.label_tag }}
@@ -18,6 +19,6 @@
             </div>
         </td>
     </tr>
+    {% endif %}
     {% endfor %}
 </table>
-

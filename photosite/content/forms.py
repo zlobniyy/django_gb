@@ -33,3 +33,4 @@ class ImageFormChange(forms.ModelForm):
         # fields = ('__all__')
         # model.author=auth.get_user
         fields = ('name', 'image', 'description', 'category', 'author')
+        #fields = ('name', 'image', 'description', 'category')

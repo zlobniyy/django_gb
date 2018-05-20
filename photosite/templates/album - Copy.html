@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+{% for image in imagelist %}
+<div class="col-lg-3 thumb_wrap">
+    <div class="thumbnail">
+        <div>
+            <a class="thumbnail" href="#OpenModalImage">
+                <img class="thumbimg" src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}">
+            </a>
+        </div>
+        <div class="thumbdesc">
+           <strong> Название: {{ image.name|upper }}, Автор: {{ image.author }}, дата загрузки: {{ image.date }} </strong>
+            {% if user.is_authenticated %}
+            <a href="img/delete/{{ image.id }}"> Удалить </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+        <div id="openModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Закрыть" class="close">X</a>
+                <div>
+                    <img src="{{ MEDIA_URL }}{{ image.image }}" alt="{{ image.name }}">
+                </div>
+            </div>
+        </div>
+
+
+{% if user.is_authenticated %}
+<div class="col-lg-3 thumb_wrap">
+    <div class="thumbnail">
+        <div>
+            <a class="thumbnail" href="{% url 'album_image_create' %}">
+                <img class="thumbimg" src="{% static 'add.png' %}" alt="Добавить картинку">
+            </a>
+        </div>
+        <div class="thumbdesc">
+           <strong> Добавить картинку </strong>
+        </div>
+    </div>
+</div>
+<form  method="post", action="" enctype="multipart/form-data">
+	{% include 'inc-image_registration_form.html' %}
+	<input type="submit" value="Создать">
+</form>
+{% endif %}
+
+<div class="pager breadcrumb-item active">
+    <span class="step-links">
+        {% if imagelist.has_previous %}
+            <a href="?page=1">| первая</a>
+            <a href="?page={{ imagelist.previous_page_number }}">| предыдущая</a>
+        {% endif %}
+        <span class="current">
+           | Страница {{ imagelist.number }} из {{ imagelist.paginator.num_pages }} |
+        </span>
+        {% if imagelist.has_next %}
+            <a href="?page={{ imagelist.next_page_number }}">следующая |</a>
+            <a href="?page=999999999999999"> последняя |</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

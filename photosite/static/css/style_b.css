@@ -7,7 +7,7 @@ html, body{
     min-height: 100%;
 }
 
-.container {  
+.container {
     margin: 0 auto;
     margin-top: 0;
     padding: 0;
@@ -129,7 +129,7 @@ a:hover {
 .contacts{
     padding: 0 25px;
     padding-top: 25px;
-    
+
 }
 .inputs{
     width: 40%;
@@ -138,8 +138,8 @@ a:hover {
     text-transform: capitalize;
 }
 form input[type="text"]:focus{
-    text-transform: capitalize;*/
-}
+    text-transform: capitalize;
+}*/
 .prod_pic{
     width: 180px;
     margin-left: 20px;
@@ -186,7 +186,7 @@ form input[type="text"]:focus{
 display: none;
 }
 
-. logform{
+.logform{
 float:right;
 height: 100%;
 width:100%;
@@ -269,4 +269,7 @@ margin:20;
 div .pager{
 position: absolute;
 bottom:110px;
+}
+.modal_div_img {
+  width: 85%;
 }
