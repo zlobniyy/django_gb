@@ -13,6 +13,7 @@ class Imagemodel(models.Model):
     name = models.CharField(verbose_name=u'название', max_length=32, unique=False)
     category = models.ForeignKey(Categorymodel,verbose_name='Категория',blank=False, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images',blank=False)
+    image_orig = models.ImageField(upload_to='images/images_orig',blank=False)
     rating = models.PositiveIntegerField(verbose_name=u'рейтинг', default=0)
     description = models.TextField(verbose_name=u'описание', blank=True)
     date = models.DateField(verbose_name=u'дата загрузки изображения', auto_now_add=True)
@@ -24,6 +25,7 @@ class Imagemodel(models.Model):
         super(Imagemodel, self).save(*args, **kwargs)
 
         # Проверяем, указан ли логотип
+        image_orig=self.image
         if self.image:
             filepath = self.image.path
             width = self.image.width

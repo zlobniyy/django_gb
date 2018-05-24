@@ -70,6 +70,7 @@ def album_image_create(request):
         request_new=request.POST.copy()
         #request_new['author']=str(author)
         request_new.update({'author':str(author)})
+        #request_new.update({'image_orig':request['image']})
         print(request_new)
         form = ImageFormChange(request.POST, request.FILES)
         form1 = ImageFormChange(request_new, request.FILES)
